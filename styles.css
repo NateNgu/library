@@ -1,0 +1,70 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: rgb(236, 236, 236);
+  height: 100dvh;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+header {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+header > * {
+  margin: 0px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  height: 75%;
+  width: 75%;
+}
+
+#new-book {
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+#current-books {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#books-container {
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  place-items: center;
+}
+
+.card {
+  background-color: rgb(236, 236, 236);
+  border: 2px solid black;
+  border-radius: 6px;
+  padding: 1rem;
+  width: 200px;
+  height: 100px;
+}
+
+.card > * {
+  margin: 0px;
+}
