@@ -15,15 +15,13 @@ function addBookToLibrary(name, author, pages, hasRead) {
   myLibrary.push(book);
 }
 
-addBookToLibrary("a", "b", 1, true);
-addBookToLibrary("a", "b", 1, false);
-
 const bookContainer = document.getElementById("books-container");
 
 function displayBooks() {
+  bookContainer.innerHTML = ""
   for (let i = 0; i < myLibrary.length; i++) {
-    const card = document.createElement("div")
-    card.classList.add("card")
+    const card = document.createElement("div");
+    card.classList.add("card");
 
     const title = document.createElement("h3");
     title.textContent = `Title: ${myLibrary[i].name}`;
@@ -38,18 +36,33 @@ function displayBooks() {
     card.appendChild(pages);
 
     const hasRead = document.createElement("h3");
-    hasRead.textContent = `Read: ${myLibrary[i].hasRead}`;
+    hasRead.textContent = `Status: ${myLibrary[i].hasRead}`;
     card.appendChild(hasRead);
 
-    bookContainer.appendChild(card)
+    bookContainer.appendChild(card);
   }
 }
 
-displayBooks();
-
 const newBookButton = document.getElementById("new-book");
-const modal = document.getElementById("modal")
+const modal = document.getElementById("modal");
+const submit = document.getElementById("submit");
+const form = document.getElementById("form");
 
-newBookButton.addEventListener("click", function() {
+newBookButton.addEventListener("click", function () {
   modal.showModal();
-})
+});
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const status = document.getElementById("read-status").value;
+
+  addBookToLibrary(title, author, pages, status);
+  displayBooks();
+
+
+  modal.close();
+});
