@@ -46,3 +46,10 @@ function displayBooks() {
 }
 
 displayBooks();
+
+const newBookButton = document.getElementById("new-book");
+const modal = document.getElementById("modal")
+
+newBookButton.addEventListener("click", function() {
+  modal.showModal();
+})
