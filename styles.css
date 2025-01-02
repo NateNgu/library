@@ -1,10 +1,10 @@
 body {
-  font-family: "Courier New", Courier, monospace;
-  background-color: rgb(236, 236, 236);
+  font-family: Quicksand, Courier, monospace;
+  background-color: rgb(255, 255, 255);
   height: 100dvh;
   margin: 0px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 2rem;
@@ -15,7 +15,10 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
+  height: 100%;
+  width: 60%;
 }
 
 header > * {
@@ -23,25 +26,26 @@ header > * {
 }
 
 main {
+  border-left: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
-  height: 75%;
-  width: 75%;
+  height: 100%;
+  width: 40%;
 }
 
 #new-book {
   background-color: white;
   padding: 0.5rem 1rem;
   border-radius: 6px;
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25);
 }
 
 #current-books {
-  background-color: white;
+  margin: 1rem;
   padding: 1rem;
-  border-radius: 10px;
-  border: 2px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,20 +53,21 @@ main {
 }
 
 #books-container {
-  width: 100%;
+  width: 75%;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
   place-items: center;
 }
 
 .card {
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(255, 255, 255);
   border: 2px solid black;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 1rem;
   width: 200px;
   height: 100px;
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25);
 }
 
 .card > * {
