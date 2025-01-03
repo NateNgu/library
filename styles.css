@@ -73,7 +73,7 @@ input:focus, select:focus {
   gap: 1rem;
 }
 
-#buttons button {
+button {
   border-radius: 6px;
   padding: 0.3rem 0.8rem;
   border: 1px solid black;
@@ -131,4 +131,8 @@ main {
 .card > * {
   margin: 0px;
   font-size: 1rem;
+}
+
+.card button {
+  margin: 1rem;
 }
