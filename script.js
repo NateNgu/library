@@ -22,7 +22,6 @@ function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement("div");
     card.classList.add("card");
-    card.setAttribute("data-card-num", `${i}`);
 
     const title = document.createElement("h3");
     title.textContent = `Title: ${myLibrary[i].name}`;
@@ -47,9 +46,9 @@ function displayBooks() {
     card.appendChild(deleteButton);
     deleteButton.addEventListener("click", function() {
       const cards = document.getElementsByClassName("card");
-      const cardNum = cards[i].getAttribute("data-card-num")
-      cards[cardNum].remove();
-      myLibrary.splice(cardNum, 1);
+      cards[i].remove();
+      myLibrary.splice(i, 1)
+      displayBooks();
     })
 
     bookContainer.appendChild(card);
@@ -76,7 +75,6 @@ form.addEventListener("submit", function (e) {
 
   addBookToLibrary(title, author, pages, status);
   displayBooks();
-  console.log(deleteButton);
 
   modal.close();
 });
