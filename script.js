@@ -39,17 +39,45 @@ function displayBooks() {
     hasRead.textContent = `Status: ${myLibrary[i].hasRead}`;
     card.appendChild(hasRead);
 
+    const changeStatusButton = document.createElement("button");
+    changeStatusButton.textContent = "Change Status";
+    changeStatusButton.classList.add("button");
+    changeStatusButton.classList.add("changeStatus");
+    card.appendChild(changeStatusButton);
+    changeStatusButton.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const dialog = document.getElementById("dialog");
+      dialog.showModal();
+    });
+
+    const changeStatus = document.getElementsByClassName("changeStatus");
+    const changeStatusForm = document.getElementById("changeStatusForm");
+    changeStatusForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const cards = document.getElementsByClassName("card");
+      const newStatus = document.getElementById("read-status2").value;
+
+
+      console.table(myLibrary)
+
+      myLibrary[i].hasRead = newStatus;
+
+      displayBooks();
+      dialog.close();
+    });
+
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("button");
     deleteButton.classList.add("delete");
     card.appendChild(deleteButton);
-    deleteButton.addEventListener("click", function() {
+    deleteButton.addEventListener("click", function () {
       const cards = document.getElementsByClassName("card");
       cards[i].remove();
-      myLibrary.splice(i, 1)
+      myLibrary.splice(i, 1);
       displayBooks();
-    })
+    });
 
     bookContainer.appendChild(card);
   }
